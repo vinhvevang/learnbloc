@@ -1,13 +1,13 @@
+import 'package:practiceflutter/task_model.dart';
+
 abstract class TaskEvent {}
-class addTask extends TaskEvent{
+class AddTask extends TaskEvent{
   final String task;
   final int price;
   final int quanity;
-  addTask(this.task,this.price,this.quanity);
+  AddTask(this.task,this.price,this.quanity);
 }
-class deleteTask extends TaskEvent{
-  final String task;
-   final int price;
-  final int quanity;
-  deleteTask(this.task,this.price,this.quanity);
+class DeleteTask extends TaskEvent{
+ final TaskModel task;
+  DeleteTask(this.task);
 }

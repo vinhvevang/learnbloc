@@ -43,11 +43,7 @@ class _MyAppState extends State<MyApp> {
                   TextButton(
                     onPressed: () {
                       context.read<TaskBloc>().add(
-                        addTask(
-                          controller.text,
-                          int.parse(controllerPrice.text),
-                          int.parse(controllerQuanity.text),
-                        ),
+                       AddTask(controller.text, int.parse(controllerPrice.text), int.parse(controllerQuanity.text))
                       );
                     },
                     child: Text("Them"),
@@ -73,16 +69,12 @@ class _MyAppState extends State<MyApp> {
 
             itemBuilder: (context, i) {
               return CardTask(
-                name: state.tasks[i],
-                price: state.price[i],
-                quanity: state.quanity[i],
+                name: state.tasks[i].task ,
+                price:state.tasks[i].price ,
+                quanity:state.tasks[i].quanity ,
                 onDeleted:
                     () => context.read<TaskBloc>().add(
-                      deleteTask(
-                        controller.text.toString(),
-                        int.parse(controllerPrice.text),
-                        int.parse(controllerQuanity.text),
-                      ),
+                     DeleteTask(state.tasks[i])
                     ),
               );
             },
